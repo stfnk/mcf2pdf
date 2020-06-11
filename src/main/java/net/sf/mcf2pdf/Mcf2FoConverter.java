@@ -95,7 +95,7 @@ public class Mcf2FoConverter {
 		}
 
 		scanForProducts(resourcesDir, McfProductCatalogue.CatalogueVersion.PRE_V6);
-		File productsDir = new File(resourcesDir, "products");
+		File productsDir = new File(resourcesDir, "products/legacy");
 		if (productsDir.isDirectory()) {
 			scanForProducts(productsDir, McfProductCatalogue.CatalogueVersion.V6);
 		}
