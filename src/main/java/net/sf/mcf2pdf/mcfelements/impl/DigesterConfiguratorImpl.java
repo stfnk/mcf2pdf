@@ -94,6 +94,8 @@ public class DigesterConfiguratorImpl implements DigesterConfigurator {
 		// fotobook element
 		digester.addObjectCreate("fotobook", getFotobookClass());
 		DigesterUtil.addSetProperties(digester, "fotobook", getSpecialFotobookAttributes());
+		DigesterUtil.addSetProperties(digester, "fotobook/articleConfig", getSpecialFotobookArticleConfigAttr());
+		DigesterUtil.addSetProperties(digester, "fotobook/savingVersion", getSpecialFotobookSavingVersionAttr());
 
 		// page element
 		digester.addObjectCreate("fotobook/page", getPageClass());
@@ -111,6 +113,7 @@ public class DigesterConfiguratorImpl implements DigesterConfigurator {
 		digester.addObjectCreate("fotobook/page/area", getAreaClass());
 		digester.addSetTop("fotobook/page/area", "setPage");
 		DigesterUtil.addSetProperties(digester, "fotobook/page/area", getSpecialAreaAttributes());
+		DigesterUtil.addSetProperties(digester, "fotobook/page/area/position", getSpecialAreaPositionAttributes());
 		digester.addSetNext("fotobook/page/area", "addArea", McfArea.class.getName());
 
 		// border element
@@ -135,6 +138,7 @@ public class DigesterConfiguratorImpl implements DigesterConfigurator {
 		// image element
 		digester.addObjectCreate("fotobook/page/area/image", getImageClass());
 		DigesterUtil.addSetProperties(digester, "fotobook/page/area/image", getSpecialImageAttributes());
+		DigesterUtil.addSetProperties(digester, "fotobook/page/area/image/cutout", getSpecialImageAttributeImg());
 		digester.addSetNext("fotobook/page/area/image", "setContent");
 		digester.addSetTop("fotobook/page/area/image", "setArea");
 
@@ -212,8 +216,20 @@ public class DigesterConfiguratorImpl implements DigesterConfigurator {
 		List<String[]> result = new Vector<String[]>();
 		result.add(new String[] { "productname", "productName" });
 		result.add(new String[] { "imagedir", "imageDir" });
+		return result;
+	}
+
+	protected List<String[]> getSpecialFotobookArticleConfigAttr() {
+		System.out.println("...ArticleConfig");
+		List<String[]> result = new Vector<String[]>();
 		result.add(new String[] { "normalpages", "normalPages" });
 		result.add(new String[] { "totalpages", "totalPages" });
+		return result;
+	}
+
+	protected List<String[]> getSpecialFotobookSavingVersionAttr() {
+		System.out.println("...SavingVersion");
+		List<String[]> result = new Vector<String[]>();
 		result.add(new String[] { "producttype", "productType" });
 		result.add(new String[] { "programversion", "programVersion" });
 		return result;
@@ -236,6 +252,7 @@ public class DigesterConfiguratorImpl implements DigesterConfigurator {
 	protected List<String[]> getSpecialBackgroundAttributes() {
 		List<String[]> result = new Vector<String[]>();
 		result.add(new String[] { "templatename", "templateName" });
+		result.add(new String[] { "designElementId", "designId" });
 		return result;
 	}
 
@@ -251,18 +268,31 @@ public class DigesterConfiguratorImpl implements DigesterConfigurator {
 		return result;
 	}
 
+	protected List<String[]> getSpecialImageAttributeImg() {
+		List<String[]> result = new Vector<String[]>();
+		result.add(new String[] { "scale", "scaleImg"});
+		result.add(new String[] { "top", "topImg"});
+		result.add(new String[] { "left", "leftImg"});
+		return result;
+	}
+
 	protected Class<? extends McfArea> getAreaClass() {
 		return McfAreaImpl.class;
 	}
 
 	protected List<String[]> getSpecialAreaAttributes() {
 		List<String[]> result = new Vector<String[]>();
-		result.add(new String[] { "zposition", "zPosition" });
 		result.add(new String[] { "areatype", "areaType" });
 		result.add(new String[] { "borderenabled", "borderEnabled" });
 		result.add(new String[] { "sizeborder", "borderSize" });
 		result.add(new String[] { "colorborder", "borderColor" });
 		result.add(new String[] { "backgroundcolor", "backgroundColor" });
+		return result;
+	}
+
+	protected List<String[]> getSpecialAreaPositionAttributes() {
+		List<String[]> result = new Vector<String[]>();
+		result.add(new String[] { "zposition", "zPosition" });
 		return result;
 	}
 
