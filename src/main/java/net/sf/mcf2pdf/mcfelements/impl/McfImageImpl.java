@@ -9,13 +9,13 @@ public class McfImageImpl extends AbstractMcfAreaContentImpl implements McfImage
 	
 	private String parentChildRelationshipNature;
 	
-	private float scale;
+	private float scaleImg;
 	
 	private int useABK;
 	
-	private int left;
+	private float leftImg;
 	
-	private int top;
+	private float topImg;
 	
 	private String fileNameMaster;
 	
@@ -39,12 +39,12 @@ public class McfImageImpl extends AbstractMcfAreaContentImpl implements McfImage
 		this.parentChildRelationshipNature = parentChildRelationshipNature;
 	}
 
-	public float getScale() {
-		return scale;
+	public float getScaleImg() {
+		return this.scaleImg;
 	}
 
-	public void setScale(float scale) {
-		this.scale = scale;
+	public void setScaleImg(float scale) {
+		this.scaleImg = scale;
 	}
 
 	public int getUseABK() {
@@ -55,20 +55,20 @@ public class McfImageImpl extends AbstractMcfAreaContentImpl implements McfImage
 		this.useABK = useABK;
 	}
 
-	public int getLeft() {
-		return left;
+	public float getLeftImg() {
+		return leftImg;
 	}
 
-	public void setLeft(int left) {
-		this.left = left;
+	public void setLeftImg(float left) {
+		this.leftImg = left;
 	}
 
-	public int getTop() {
-		return top;
+	public float getTopImg() {
+		return topImg;
 	}
 
-	public void setTop(int top) {
-		this.top = top;
+	public void setTopImg(float top) {
+		this.topImg = top;
 	}
 
 	public String getFileNameMaster() {

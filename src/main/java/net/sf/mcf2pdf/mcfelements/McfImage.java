@@ -10,13 +10,13 @@ public interface McfImage extends McfAreaContent {
 
 	public String getParentChildRelationshipNature();
 
-	public float getScale();
+	public float getScaleImg();
 
 	public int getUseABK();
 
-	public int getLeft();
+	public float getLeftImg();
 
-	public int getTop();
+	public float getTopImg();
 
 	public String getFileNameMaster();
 
