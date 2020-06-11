@@ -92,7 +92,8 @@ public class McfImageImpl extends AbstractMcfAreaContentImpl implements McfImage
 	}
 
 	public void setFileName(String fileName) {
-		this.fileName = fileName;
+		String fixed = fileName.replace("safecontainer:/", "");
+		this.fileName = fixed;
 	}
 
 	public String getFadingFile() {
