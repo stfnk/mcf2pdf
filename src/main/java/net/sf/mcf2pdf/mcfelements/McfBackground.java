@@ -12,6 +12,8 @@ public interface McfBackground {
 
 	public String getTemplateName();
 
+	public int getDesignId();
+
 	public int getType();
 
 	public int getLayout();

@@ -11,6 +11,8 @@ public class McfBackgroundImpl implements McfBackground {
 	private McfPage page;
 	
 	private String templateName;
+
+	private int designId;
 	
 	private int type;
 	
@@ -25,11 +27,20 @@ public class McfBackgroundImpl implements McfBackground {
 	}
 
 	public String getTemplateName() {
-		return templateName;
+		String name = designId + ",normal,";
+		return name; //templateName;
 	}
 
 	public void setTemplateName(String templateName) {
 		this.templateName = templateName;
+	}
+
+	public int getDesignId() {
+		return designId;
+	}
+
+	public void setDesignId(int id) {
+		this.designId = id;
 	}
 
 	public int getType() {
